@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "sass",
+          "changeDetection": "OnPush"
         }
       },
       "root": "",
@@ -89,8 +90,23 @@
               "src/styles.sass"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4b0f4b92-2c16-4e99-add8-0eb97f808cc6",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
