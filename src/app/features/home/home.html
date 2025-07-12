@@ -1,8 +1,19 @@
-<section>
-  <article></article>
-  <article></article>
+<section class="home">
+  <article class="home-hero">
+    <h1>Book Store</h1>
+    <p>We have the most extensive list of books</p>
+  </article>
+  <article class="home-slider">
+    <swiper-container navigation="true">
+      @for (book of newBooks(); track book.isbn13) {
+        <swiper-slide>
+          <app-new-book [book]="book" />
+        </swiper-slide>
+      }
+    </swiper-container>
+  </article>
 </section>
-<section>
+<section class="home-category">
   <h2>Selecciona tu libro favorito de: {{ category() | titlecase }}</h2>
   <app-category-selector />
   <article>

@@ -1,0 +1,85 @@
+.home
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 70vh
+  margin-bottom: 5rem
+  padding: 2rem
+
+  .home-hero
+    flex: 1
+    text-align: center
+    margin-bottom: 2rem
+
+    h1
+      font-size: 2.5rem
+      font-weight: 800
+      line-height: 1.1
+      margin-bottom: 1rem
+
+    p
+      font-size: 1.25rem
+
+  .home-slider
+    flex: 1
+    width: 100%
+    max-width: 700px
+    margin: 0 auto
+    box-sizing: border-box
+
+    swiper-container
+      width: 100%
+      min-height: 340px
+      height: auto
+      box-sizing: border-box
+
+      swiper-slide
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 100%
+        height: 100%
+        overflow: visible
+        box-sizing: border-box
+
+@media (min-width: 768px)
+  .home
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    height: 40vh
+    padding: 2rem
+
+    .home-hero
+      flex: 1
+      text-align: left
+      margin-bottom: 0
+
+      h1
+        max-width: 50%
+        font-size: 3.5rem
+
+      p
+        max-width: 75%
+
+    .home-slider
+      flex: 1
+      max-width: 450px
+      margin: 0
+      padding: 0
+
+      swiper-container
+        min-height: 340px
+
+@media (min-width: 1024px)
+  .home
+    height: 70vh
+    padding: 4rem
+
+    .home-hero
+      h1
+        font-size: 5rem
+        max-width: 100%
+
+    .home-slider
+      max-width: 700px
