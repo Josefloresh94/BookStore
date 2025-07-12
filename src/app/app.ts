@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './common/components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
-  styleUrl: './app.sass'
+  styleUrl: './app.sass',
 })
-export class App {
-  protected title = 'BookStore';
-}
+export class App {}

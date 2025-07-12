@@ -1,1 +1,21 @@
-<p>navbar works!</p>
+<nav class="navbar">
+  <span class="navbar-brand">BookStore</span>
+  <ul class="navbar-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Books</a></li>
+  </ul>
+
+  <!-- Mobile Menu -->
+  <div class="toggleMenu">
+    <button class="toggleMenuButton" cdkMenuItem [cdkMenuTriggerFor]="file">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+  </div>
+</nav>
+
+<ng-template #file>
+  <div class="example-menu" cdkMenu>
+    <button class="example-menu-item" cdkMenuItem>Home</button>
+    <button class="example-menu-item" cdkMenuItem>Books</button>
+  </div>
+</ng-template>

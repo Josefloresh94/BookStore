@@ -1,1 +1,14 @@
-<p>home-book works!</p>
+<a [routerLink]="['/books', book().isbn13]">
+  <img [src]="book().image" [alt]="book().title" />
+  <div>
+    <div>
+      <h4>{{ book().title }}</h4>
+      <p>{{ book().subtitle }}</p>
+    </div>
+    <div>
+      <span>
+        {{ book().price }}
+      </span>
+    </div>
+  </div>
+</a>

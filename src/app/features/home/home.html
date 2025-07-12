@@ -1,1 +1,13 @@
-<p>home works!</p>
+<section>
+  <article></article>
+  <article></article>
+</section>
+<section>
+  <h2>Selecciona tu libro favorito de: {{ category() | titlecase }}</h2>
+  <app-category-selector />
+  <article>
+    @for (book of books(); track $index) {
+      <app-home-book [book]="book" />
+    }
+  </article>
+</section>
