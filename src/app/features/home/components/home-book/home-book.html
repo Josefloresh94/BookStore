@@ -1,14 +1,20 @@
-<a [routerLink]="['/books', book().isbn13]">
-  <img [src]="book().image" [alt]="book().title" />
-  <div>
-    <div>
-      <h4>{{ book().title }}</h4>
-      <p>{{ book().subtitle }}</p>
-    </div>
-    <div>
+<div class="home-book">
+  <a [routerLink]="['/books', book().isbn13]">
+    <img [src]="book().image" [alt]="book().title" />
+    <div class="home-book-details">
+      <h2>{{ book().title }}</h2>
+      @if (book().subtitle) {
+        <p>{{ book().subtitle }}</p>
+      } @else {
+        <p>No subtitle available</p>
+      }
       <span>
         {{ book().price }}
       </span>
+      <p>
+        Click me to see more
+        <fa-icon [icon]="faArrowPointer"></fa-icon>
+      </p>
     </div>
-  </div>
-</a>
+  </a>
+</div>

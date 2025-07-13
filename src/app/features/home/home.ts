@@ -7,7 +7,6 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core';
 import { CategorySelector } from './components/category-selector/category-selector';
-import { TitleCasePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, of } from 'rxjs';
 import { BookService } from '../../infrastructure/book-service';
@@ -19,7 +18,7 @@ register();
 
 @Component({
   selector: 'app-home',
-  imports: [CategorySelector, TitleCasePipe, HomeBook, NewBook],
+  imports: [CategorySelector, HomeBook, NewBook],
   templateUrl: './home.html',
   styleUrl: './home.sass',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,7 +38,10 @@ export class Home implements OnInit {
     });
 
     this.route.paramMap.subscribe((params) => {
-      const category = params.get('category');
+      let category = params.get('category');
+      if (!category) {
+        category = 'all';
+      }
       if (category && category !== this.category()) {
         this.category.set(category);
 

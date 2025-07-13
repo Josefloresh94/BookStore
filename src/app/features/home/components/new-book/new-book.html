@@ -3,13 +3,11 @@
     <h2 class="title">
       {{ book().title }}
     </h2>
-    <p class="subtitle">
-      @if (book().subtitle) {
-        {{ book().subtitle }}
-      } @else {
-        <p>No subtitle available</p>
-      }
-    </p>
+    @if (book().subtitle) {
+      <p class="subtitle">{{ book().subtitle }}</p>
+    } @else {
+      <p class="subtitle">No subtitle available</p>
+    }
     <span class="price">{{ book().price }}</span>
     <a [routerLink]="['/books', book().isbn13]" class="view-more">
       See more

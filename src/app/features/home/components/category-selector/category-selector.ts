@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CategorySelector {
   categories = signal([
+    'all',
     'new',
     'angular',
     'javascript',

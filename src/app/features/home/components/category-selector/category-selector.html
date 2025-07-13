@@ -1,16 +1,7 @@
-<section>
-  <div>
-    <div>
-      <h2>Compra por categoría</h2>
-      <a href="">Mira más categorías</a>
-    </div>
-  </div>
-
-  <div>
-    @for (category of categories(); track category) {
-      <a [routerLink]="['/categories', category]">
-        <span>{{ category | titlecase }}</span>
-      </a>
-    }
-  </div>
+<section class="category-selector">
+  @for (category of categories(); track category) {
+    <button class="category" [routerLink]="['/categories', category]">
+      <span>{{ category | titlecase }}</span>
+    </button>
+  }
 </section>
