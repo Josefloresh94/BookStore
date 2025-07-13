@@ -1,0 +1,150 @@
+.book-details
+  display: flex
+  justify-content: center
+  align-items: flex-start
+  min-height: 80vh
+  background: #f6f7fa
+  padding: 1rem
+
+.book-card
+  display: flex
+  flex-direction: column
+  background: #fff
+  border-radius: 1.5rem
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06)
+  padding: 1.5rem 0.5rem
+  gap: 1.5rem
+  max-width: 340px
+  width: 100%
+
+  .book-image
+    flex: 1
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      width: 160px
+      height: 220px
+      object-fit: contain
+      border-radius: 1rem
+      background: #f6f7fa
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08)
+
+  .book-info
+    flex: 2
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+    header
+      margin-bottom: 1rem
+      text-align: center
+
+      h2
+        font-size: 1.3rem
+        font-weight: 800
+        color: #222
+        margin-bottom: 0.5rem
+
+      .subtitle
+        font-size: 1.1rem
+        color: #555
+        margin-bottom: 0.5rem
+
+      .price
+        font-size: 1.3rem
+        font-weight: 700
+        color: #1a8917
+        display: block
+
+    .book-actions
+      display: flex
+      gap: 1rem
+
+      button
+        display: flex
+        align-items: center
+        gap: 0.5rem
+        background: #f6f7fa
+        color: #222
+        border: none
+        border-radius: 0.5rem
+        padding: 0.75rem 1.5rem
+        font-size: 1rem
+        font-weight: 600
+        cursor: pointer
+        transition: background 0.2s, color 0.2s
+
+        &:hover
+          background: #222
+          color: #fff
+
+    hr
+      border: none
+      border-top: 1px solid #eee
+      margin: 1.5rem 0
+
+    .book-meta
+      font-size: 1rem
+      color: #444
+
+      p
+        margin-bottom: 0.5rem
+
+      strong
+        color: #222
+
+.book-loading
+  width: 100%
+  height: 400px
+  background: linear-gradient(90deg, #f6f7fa 25%, #eaeaea 50%, #f6f7fa 75%)
+  border-radius: 1.5rem
+  animation: loading 1.5s infinite linear
+
+@keyframes loading
+  0%
+    background-position: -200px 0
+  100%
+    background-position: calc(200px + 100%) 0
+
+// Tablet (>=765px)
+@media (min-width: 765px)
+  .book-details
+    min-height: 100vh
+    .book-card
+      flex-direction: row
+      align-items: flex-start
+      padding: 2rem
+      gap: 2.5rem
+      max-width: 700px
+
+      .book-image img
+        width: 220px
+        height: 320px
+
+      .book-info header h2
+        font-size: 1.7rem
+
+      .book-info header .price
+        font-size: 1.5rem
+
+// Desktop (>=1024px)
+@media (min-width: 1024px)
+  .book-details
+    padding: 3rem 1rem
+
+  .book-card
+    max-width: 900px
+    padding: 2.5rem 2rem
+    gap: 3rem
+
+    .book-image img
+      width: 260px
+      height: 360px
+
+    .book-info header h2
+      font-size: 2rem
+
+    .book-info header .price
+      font-size: 1.7rem

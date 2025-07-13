@@ -1,1 +1,46 @@
-<p>book works!</p>
+<section class="book-details">
+  @if (book() ) {
+    @defer (on viewport) {
+      <article class="book-card">
+        <div class="book-image">
+          <img [src]="book()?.image" [alt]="book()?.title"/>
+        </div>
+        <div class="book-info">
+          <header>
+            <h2>{{book()?.title}}</h2>
+            @if (book()?.subtitle) {
+              <p class="subtitle">{{book()?.subtitle}}</p>
+            } @else {
+              <p class="subtitle">No subtitle available</p>
+            }
+            <!-- <p>
+              <strong>Rating</strong>
+              @for (star of getStars(book()?.rating); track $index) {
+                <fa-icon [icon]="faStar"></fa-icon>
+              }
+            </p> -->
+            <span class="price">{{book()?.price}}</span>
+          </header>
+          <div class="book-actions">
+            <button>
+              <fa-icon [icon]="faHeart"></fa-icon>
+              Add to favorites
+            </button>
+            <button>
+              <fa-icon [icon]="faCartShopping"></fa-icon>
+              Add to cart
+            </button>
+          </div>
+          <hr />
+          <div class="book-meta">
+            <p>{{book()?.desc}}</p>
+            <p><strong>Authors:</strong> {{book()?.authors}}</p>
+            <p><strong>Publisher:</strong> {{book()?.publisher}}</p>
+          </div>
+        </div>
+      </article>
+    } @placeholder {
+      <div class="book-loading"></div>
+    }
+  }
+</section>
