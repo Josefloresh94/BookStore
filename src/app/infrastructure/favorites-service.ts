@@ -7,6 +7,7 @@ import {
   inject,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { toast } from 'ngx-sonner';
 
 @Injectable({
   providedIn: 'root',
@@ -59,6 +60,10 @@ export class FavoritesService {
       const updatedFavorites = [...currentFavorites, book];
       this.favoritesSignal.set(updatedFavorites);
       this.saveFavoritesToStorage(updatedFavorites);
+
+      toast.success('Libro agregado a favoritos', {
+        description: `"${book.title}" se ha añadido a tu lista de favoritos`,
+      });
     }
   }
 
@@ -67,11 +72,27 @@ export class FavoritesService {
    */
   removeFromFavorites(isbn13: string): void {
     const currentFavorites = this.favoritesSignal();
+    const bookToRemove = currentFavorites.find(
+      (book) => book.isbn13 === isbn13,
+    );
     const updatedFavorites = currentFavorites.filter(
       (book) => book.isbn13 !== isbn13,
     );
     this.favoritesSignal.set(updatedFavorites);
     this.saveFavoritesToStorage(updatedFavorites);
+
+    // Toast con opción de deshacer
+    if (bookToRemove) {
+      toast.success('Libro eliminado de favoritos', {
+        description: `"${bookToRemove.title}" ya no está en tus favoritos`,
+        action: {
+          label: 'Deshacer',
+          onClick: () => {
+            this.addToFavorites(bookToRemove);
+          },
+        },
+      });
+    }
   }
 
   /**
@@ -102,6 +123,9 @@ export class FavoritesService {
       return stored ? JSON.parse(stored) : [];
     } catch (error) {
       console.error('Error loading favorites from localStorage:', error);
+      toast.error('Error al cargar favoritos', {
+        description: 'No se pudieron cargar tus favoritos guardados',
+      });
       return [];
     }
   }
@@ -114,6 +138,9 @@ export class FavoritesService {
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(favorites));
     } catch (error) {
       console.error('Error saving favorites to localStorage:', error);
+      toast.error('Error al guardar favoritos', {
+        description: 'No se pudieron guardar los cambios en tus favoritos',
+      });
     }
   }
 }

@@ -12,6 +12,7 @@ import {
   faHeart,
   faHeartCrack,
 } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-favorites',
@@ -37,12 +38,26 @@ export class Favorites {
   // Método para remover un libro específico de favoritos
   removeFromFavorites(isbn13: string): void {
     this.favoritesService.removeFromFavorites(isbn13);
+    toast.success('Libro eliminado de favoritos');
   }
 
   // Método para limpiar todos los favoritos
   clearAllFavorites(): void {
-    if (confirm('¿Estás seguro de que quieres eliminar todos los favoritos?')) {
-      this.favoritesService.clearFavorites();
-    }
+    toast('¿Estás seguro de que quieres eliminar todos los favoritos?', {
+      description: 'Esta acción no se puede deshacer',
+      action: {
+        label: 'Eliminar',
+        onClick: () => {
+          this.favoritesService.clearFavorites();
+          toast.success('Todos los favoritos han sido eliminados');
+        },
+      },
+      cancel: {
+        label: 'Cancelar',
+        onClick: () => {
+          toast.info('Operación cancelada');
+        },
+      },
+    });
   }
 }
