@@ -13,4 +13,9 @@ export const routes: Routes = [
     path: 'categories/:category',
     loadComponent: () => import('./features/home/home').then((c) => c.Home),
   },
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./features/favorites/favorites').then((c) => c.Favorites),
+  },
 ];

@@ -1,0 +1,91 @@
+<main class="FavoritesContainer">
+  @if (hasFavorites()) {
+    @defer (on viewport) {
+      <header class="favorites-header">
+        <div class="header-content">
+          <h1>
+            <fa-icon [icon]="faHeart" class="heart-icon"></fa-icon>
+            My Favorites
+          </h1>
+          <div class="favorites-count">
+            <span class="count-badge">{{ favoritesCount() }}</span>
+            <span class="count-text">
+              {{ favoritesCount() === 1 ? "book" : "books" }} in your favorites
+            </span>
+          </div>
+          <button
+            class="clear-all-btn"
+            (click)="clearAllFavorites()"
+            title="Clear all favorites"
+          >
+            <fa-icon [icon]="faTrash"></fa-icon>
+            Clear All
+          </button>
+        </div>
+      </header>
+
+      <section class="favorites-content">
+        <div class="favorites-grid">
+          @for (book of favorites(); track $index) {
+            <article class="favorite-book-card">
+              <div class="book-image-container">
+                <img class="book-image" [src]="book.image" [alt]="book.title" />
+              </div>
+              <div class="book-info">
+                <h2 class="book-title">{{ book.title }}</h2>
+                @if (book.subtitle) {
+                  <p class="book-subtitle">{{ book.subtitle }}</p>
+                } @else {
+                  <p class="book-subtitle">No subtitle available</p>
+                }
+              </div>
+              <div class="book-meta">
+                <p class="authors">
+                  <strong>Authors:</strong> {{ book.authors }}
+                </p>
+                <p class="publisher">
+                  <strong>Publisher:</strong> {{ book.publisher }}
+                </p>
+              </div>
+              <div class="book-actions">
+                <span class="price">{{ book.price }}</span>
+                <div class="buttons">
+                  <button
+                    class="cart-btn remove"
+                    (click)="removeFromFavorites(book.isbn13)"
+                  >
+                    <fa-icon [icon]="faHeart" class="heart"></fa-icon>
+                    Remove from favorites
+                  </button>
+                  <button class="cart-btn add">
+                    <fa-icon [icon]="faCartShopping"></fa-icon>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    } @placeholder {
+      <div class="book-loading"></div>
+    }
+  } @else {
+    <header class="favorites-header">
+      <div class="header-content">
+        <h2>
+          <fa-icon [icon]="faHeartCrack" class="heart-icon"></fa-icon>
+          No Favorites Yet
+        </h2>
+        <p>
+          Books you mark as favorites will appear here. Start exploring and add
+          some books to your favorites!
+        </p>
+        <div class="favorites-count">
+          <span class="count-badge">{{ favoritesCount() }}</span>
+          <span class="count-text"> books in your favorites </span>
+        </div>
+      </div>
+    </header>
+  }
+</main>

@@ -1,8 +1,9 @@
 <nav class="navbar">
   <span class="navbar-brand">BookStore</span>
   <ul class="navbar-nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Books</a></li>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/favorites">Favorites</a></li>
+    <li><a routerLink="#">Shop</a></li>
   </ul>
 
   <!-- Mobile Menu -->
@@ -15,7 +16,10 @@
 
 <ng-template #file>
   <div class="example-menu" cdkMenu>
-    <button class="example-menu-item" cdkMenuItem>Home</button>
-    <button class="example-menu-item" cdkMenuItem>Books</button>
+    <button class="example-menu-item" routerLink="/" cdkMenuItem>Home</button>
+    <button class="example-menu-item" routerLink="/favorites" cdkMenuItem>
+      Favorites
+    </button>
+    <button class="example-menu-item" routerLink="/" cdkMenuItem>Shop</button>
   </div>
 </ng-template>

@@ -1,30 +1,48 @@
 <section class="book-details">
-  @if (book() ) {
+  @if (book()) {
     @defer (on viewport) {
       <article class="book-card">
         <div class="book-image">
-          <img [src]="book()?.image" [alt]="book()?.title"/>
+          <img [src]="book()?.image" [alt]="book()?.title" />
         </div>
         <div class="book-info">
           <header>
-            <h2>{{book()?.title}}</h2>
+            <h2>{{ book()?.title }}</h2>
             @if (book()?.subtitle) {
-              <p class="subtitle">{{book()?.subtitle}}</p>
+              <p class="subtitle">{{ book()?.subtitle }}</p>
             } @else {
               <p class="subtitle">No subtitle available</p>
             }
-            <!-- <p>
-              <strong>Rating</strong>
-              @for (star of getStars(book()?.rating); track $index) {
-                <fa-icon [icon]="faStar"></fa-icon>
-              }
-            </p> -->
-            <span class="price">{{book()?.price}}</span>
+            <p class="rating-section">
+              <strong>Rating: </strong>
+              <span class="stars">
+                @for (star of getStars(book()!.rating); track $index) {
+                  <fa-icon
+                    [icon]="star.icon"
+                    [class]="'star ' + star.class"
+                  ></fa-icon>
+                }
+              </span>
+              <span class="rating-value">({{ book()?.rating }}/5)</span>
+            </p>
+            <span class="price">{{ book()?.price }}</span>
           </header>
           <div class="book-actions">
-            <button>
-              <fa-icon [icon]="faHeart"></fa-icon>
-              Add to favorites
+            <button
+              [class]="favoriteButtonClass()"
+              (click)="onToggleFavorite()"
+            >
+              <span class="heart">
+                <fa-icon
+                  [icon]="getFavoriteIcon().icon"
+                  [class]="getFavoriteIcon().class"
+                ></fa-icon>
+              </span>
+              {{
+                isCurrentBookFavorite()
+                  ? "Remove from favorites"
+                  : "Add to favorites"
+              }}
             </button>
             <button>
               <fa-icon [icon]="faCartShopping"></fa-icon>
@@ -33,9 +51,9 @@
           </div>
           <hr />
           <div class="book-meta">
-            <p>{{book()?.desc}}</p>
-            <p><strong>Authors:</strong> {{book()?.authors}}</p>
-            <p><strong>Publisher:</strong> {{book()?.publisher}}</p>
+            <p>{{ book()?.desc }}</p>
+            <p><strong>Authors:</strong> {{ book()?.authors }}</p>
+            <p><strong>Publisher:</strong> {{ book()?.publisher }}</p>
           </div>
         </div>
       </article>
