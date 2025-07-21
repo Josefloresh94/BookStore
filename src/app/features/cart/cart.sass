@@ -1,0 +1,346 @@
+// Sección principal
+.shopping-cart-section
+  background-color: white
+  -webkit-font-smoothing: antialiased
+
+.container
+  margin: 0 auto
+  max-width: 1280px
+  padding: 1rem
+
+.main-title
+  font-size: 2rem
+  font-weight: 600
+
+.main-content
+  margin-top: 1.5rem
+
+.cart-items-container
+  margin: 0 auto
+  width: 100%
+  flex: none
+  max-width: 56rem
+
+.cart-items-list
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+// Componente Cart Product
+.cart-product-card
+  border-radius: 0.5rem
+  border: 1px solid #e5e7eb
+  background-color: white
+  padding: 1rem
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+
+.cart-product-content
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.product-image-link
+  display: flex
+  justify-content: center
+  margin: 0 auto
+
+.product-image
+  width: 7.5rem
+  height: 7.5rem
+
+.quantity-price-container
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+
+.quantity-controls
+  display: flex
+  align-items: center
+
+.quantity-button
+  display: inline-flex
+  height: 1.25rem
+  width: 1.25rem
+  flex-shrink: 0
+  align-items: center
+  justify-content: center
+  border-radius: 0.375rem
+  border: 1px solid #d1d5db
+  background-color: #f3f4f6
+  &:hover
+    background-color: #e5e7eb
+  &:focus
+    outline: none
+    box-shadow: 0 0 0 2px #f3f4f6
+
+.quantity-display
+  width: 2.5rem
+  flex-shrink: 0
+  text-align: center
+  font-size: 0.875rem
+  font-weight: 500
+  color: #111827
+
+.product-price-container
+  text-align: right
+
+.product-price
+  font-size: 1rem
+  font-weight: 700
+  color: #111827
+
+.product-info-container
+  width: 100%
+  min-width: 0
+  flex: 1
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.product-name-link
+  font-size: 1.5rem
+  font-weight: 700
+  color: #111827
+  text-align: center
+
+.product-actions
+  display: flex
+  align-items: center
+  gap: 1rem
+
+.remove-button
+  width: 100%
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  background: #dc2626
+  border: none
+  border-radius: 0.5rem
+  padding: 0.75rem
+  font-size: 0.8rem
+  font-weight: 600
+  cursor: pointer
+  color: white
+
+// Sidebar resumen
+.order-summary-sidebar
+  margin: 0 auto
+  margin-top: 1.5rem
+  max-width: 56rem
+  flex: 1
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+.order-summary-card
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  border-radius: 0.5rem
+  border: 1px solid #e5e7eb
+  background-color: white
+  padding: 1rem
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+
+.order-summary-title
+  font-size: 1.25rem
+  font-weight: 600
+  color: #111827
+
+.order-summary-content
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.order-total-row
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 1rem
+  border-top: 1px solid #e5e7eb
+  padding-top: 0.5rem
+
+.order-total-label,
+.order-total-amount
+  font-size: 1rem
+  font-weight: 700
+  color: #111827
+
+.checkout-button
+  display: flex
+  width: 100%
+  align-items: center
+  justify-content: center
+  border-radius: 0.5rem
+  background-color: #facc15
+  padding: 0.625rem 1.25rem
+  font-size: 0.875rem
+  font-weight: 500
+  color: white
+
+.continue-shopping-section
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+
+.continue-shopping-separator
+  font-size: 0.875rem
+  font-weight: 400
+  color: #6b7280
+
+.continue-shopping-link-alt
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  font-size: 0.875rem
+  font-weight: 500
+  color: #eab308
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+// Formulario voucher
+.voucher-card
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  border-radius: 0.5rem
+  border: 1px solid #e5e7eb
+  background-color: white
+  padding: 1rem
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+
+.voucher-form
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.voucher-label
+  margin-bottom: 0.5rem
+  display: block
+  font-size: 0.875rem
+  font-weight: 500
+  color: #111827
+
+.voucher-input
+  display: block
+  width: 100%
+  border-radius: 0.5rem
+  border: 1px solid #d1d5db
+  background-color: #f9fafb
+  padding: 0.625rem
+  font-size: 0.875rem
+  color: #111827
+
+.voucher-button
+  display: flex
+  width: 100%
+  align-items: center
+  justify-content: center
+  border-radius: 0.5rem
+  background-color: #facc15
+  padding: 0.625rem 1.25rem
+  font-size: 0.875rem
+  font-weight: 500
+  color: white
+
+// Estado carrito vacío
+.empty-cart-container
+  display: flex
+  flex-direction: column
+  margin: 0 auto
+  align-items: center
+
+.empty-cart-image
+  width: 25rem
+  height: 25rem
+
+.empty-cart-content
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 0.25rem
+  max-width: 24rem
+  margin: 0 auto
+  text-align: center
+
+.empty-cart-title
+  color: #030712
+  font-weight: 700
+  font-size: 1.5rem
+
+.empty-cart-text
+  color: #6b7280
+  font-size: 1.125rem
+
+.continue-shopping-link
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  font-size: 0.875rem
+  font-weight: 500
+  color: #eab308
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+.continue-shopping-icon
+  width: 1.25rem
+  height: 1.25rem
+
+
+// Media Queries - Tablet (768px)
+@media (min-width: 768px)
+  .main-content
+    margin-top: 2rem
+    gap: 1.5rem
+
+  .cart-product-card
+    padding: 1.5rem
+
+  .cart-product-content
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 1.5rem
+    flex-direction: row
+
+  .quantity-price-container
+    .product-price-container
+      .product-price
+        font-size: 1.2rem
+        padding: 0 0 0 1rem
+
+  .product-actions
+    span
+      display: none
+    button
+      border-radius: 50%
+
+  .order-summary-card
+    padding: 1.5rem
+
+  .voucher-card
+    padding: 1.5rem
+
+// Media Queries - Desktop (1024px)
+@media (min-width: 1024px)
+  .main-content
+    display: flex
+    align-items: flex-start
+
+  .cart-items-container
+    max-width: 42rem
+
+  .order-summary-sidebar
+    margin-top: 0
+    width: 100%
+
+@media (min-width: 1280px)
+  .main-content
+    gap: 2rem
+
+  .cart-items-container
+    max-width: 56rem

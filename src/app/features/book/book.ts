@@ -22,6 +22,8 @@ import {
   faStar as faStarRegular,
   faHeart as faHeartRegular,
 } from '@fortawesome/free-regular-svg-icons';
+import { CartService } from '../../infrastructure/cart-service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-book',
@@ -32,6 +34,7 @@ import {
 })
 export class Book implements AfterViewInit {
   private favoritesService = inject(FavoritesService);
+  private cartService = inject(CartService);
   book = signal<BookDetails | null>(null);
 
   // Icons
@@ -107,6 +110,16 @@ export class Book implements AfterViewInit {
     const currentBook = this.book();
     if (currentBook) {
       this.favoritesService.toggleFavorite(currentBook);
+    }
+  }
+
+  addToCart() {
+    const currentBook = this.book();
+
+    if (currentBook) {
+      this.cartService.addToCart(currentBook);
+    } else {
+      toast.error('El libro no se pudo agregar al carrito');
     }
   }
 }

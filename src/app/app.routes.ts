@@ -18,4 +18,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/favorites/favorites').then((c) => c.Favorites),
   },
+  {
+    path: 'cart',
+    loadComponent: () => import('./features/cart/cart').then((c) => c.Cart),
+  },
 ];
